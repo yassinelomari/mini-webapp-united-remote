@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {GithubRepositoryService} from './sharedServices/githubRepository.service';
 import { ListRepositoriesComponent } from './list-repositories/list-repositories.component';
+import { RepositoryComponent } from './list-repositories/repository/repository.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListRepositoriesComponent
+    ListRepositoriesComponent,
+    RepositoryComponent
   ],
   imports: [
     BrowserModule,
