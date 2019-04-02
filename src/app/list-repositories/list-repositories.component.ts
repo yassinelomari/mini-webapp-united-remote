@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GithubRepositoryService} from '../sharedServices/githubRepository.service';
 import {forkJoin, Observable} from 'rxjs';
+import {Repository} from '../sharedModel/repository.model';
 
 @Component({
   selector: 'app-list-repositories',
@@ -9,7 +10,7 @@ import {forkJoin, Observable} from 'rxjs';
 })
 export class ListRepositoriesComponent implements OnInit {
 
-  repositoriesList: any[] = [];
+  repositoriesList: Repository[] = [];
   nbrPage: number;
 
   constructor(private githubRepositoryService: GithubRepositoryService) {
@@ -30,12 +31,17 @@ export class ListRepositoriesComponent implements OnInit {
     for (let i = 1; i < nbr; i++) {
       observables.push(this.githubRepositoryService.getRepositories(i));
     }
-
     forkJoin(observables)
       .subscribe(dataArray => {
         list = dataArray.map( page => page['items']);
         list = [].concat.apply([], list);
         console.log(list);
+        list.forEach((res) => {
+          const repository = new Repository (res['name'], res['description'], res['stargazers_count'],
+            res['open_issues_count'], res['owner']['login'], res['owner']['avatar_url']);
+          this.repositoriesList.push(repository);
+        });
+        console.log(this.repositoriesList);
       });
   }
 
