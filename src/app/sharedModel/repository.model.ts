@@ -1,7 +1,15 @@
 export class Repository {
   constructor(private name: string, private description, private nbrStars: number,
-              private nbrIssues: number, private userName: string, private avatar: string) {
+              private nbrIssues: number, private userName: string, private avatar: string, private submittedDate: Date) {
 
+  }
+
+  getSubmittedDate(): Date {
+    return this.submittedDate;
+  }
+
+  setSubmittedDate(value: Date) {
+    this.submittedDate = value;
   }
 
   getName(): string {

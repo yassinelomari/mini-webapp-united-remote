@@ -9,6 +9,7 @@ export class GithubRepositoryService {
   listRepository: Repository[] = [];
   private url = 'https://api.github.com/search/repositories?q=created:>';
   // 2018-02-28&sort=stars&order=desc';
+  // ?access_token=af435b3ab34e0b0c5c214dfd9a777606f8fd52a7
 
   constructor(private http: HttpClient) {
     const d = new Date();

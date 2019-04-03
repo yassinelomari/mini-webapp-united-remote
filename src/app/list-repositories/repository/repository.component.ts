@@ -9,10 +9,15 @@ import {Repository} from '../../sharedModel/repository.model';
 export class RepositoryComponent implements OnInit {
 
   @Input() rep: Repository;
+  nbrDays: number;
 
   constructor() { }
 
   ngOnInit() {
+    const submittedDate = this.rep.getSubmittedDate();
+    const dateNow = new Date();
+    const diff = dateNow.getTime() - submittedDate.getTime();
+    this.nbrDays = diff / (1000 * 3600 * 24);
   }
 
 }

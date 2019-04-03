@@ -9,10 +9,16 @@
       <div class="mb-4 text-grey-darker text-sm flex-1">
         <p>{{rep?.getDescription()}}</p>
       </div>
-      <p>Stars : {{rep?.getNbrStars()}} , Issues : {{rep?.getNbrIssues()}} Submetted 30 days ago by
+      <p *ngIf="nbrDays >= 1; else today">Stars : {{rep?.getNbrStars()}} , Issues : {{rep?.getNbrIssues()}} Submetted {{nbrDays | number:'1.0-0'}} days ago by
         <a href="#" class="border-t border-grey-light pt-2 text-xs text-grey hover:text-red uppercase no-underline tracking-wide"
            style="">{{rep?.getUserName()}}.</a>
       </p>
+      <ng-template #today>
+        <p >Stars : {{rep?.getNbrStars()}} , Issues : {{rep?.getNbrIssues()}} Submetted today by
+          <a href="#" class="border-t border-grey-light pt-2 text-xs text-grey hover:text-red uppercase no-underline tracking-wide"
+             style="">{{rep?.getUserName()}}.</a>
+        </p>
+      </ng-template>
     </div>
   </div>
 </div>

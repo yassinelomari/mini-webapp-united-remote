@@ -38,7 +38,7 @@ export class ListRepositoriesComponent implements OnInit {
         console.log(list);
         list.forEach((res) => {
           const repository = new Repository (res['name'], res['description'], res['stargazers_count'],
-            res['open_issues_count'], res['owner']['login'], res['owner']['avatar_url']);
+            res['open_issues_count'], res['owner']['login'], res['owner']['avatar_url'],new Date(res['updated_at']));
           this.repositoriesList.push(repository);
         });
         console.log(this.repositoriesList);
