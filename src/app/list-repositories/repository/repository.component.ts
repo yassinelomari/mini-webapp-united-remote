@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Repository} from '../../sharedModel/repository.model';
+import { faStar, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-repository',
@@ -10,6 +11,9 @@ export class RepositoryComponent implements OnInit {
 
   @Input() rep: Repository;
   nbrDays: number;
+
+  faStar = faStar;
+  faExclamationCircle = faExclamationCircle;
 
   constructor() { }
 

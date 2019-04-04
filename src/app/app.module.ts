@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {GithubRepositoryService} from './sharedServices/githubRepository.service';
 import { ListRepositoriesComponent } from './list-repositories/list-repositories.component';
 import { RepositoryComponent } from './list-repositories/repository/repository.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RepositoryComponent } from './list-repositories/repository/repository.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [GithubRepositoryService],
   bootstrap: [AppComponent]

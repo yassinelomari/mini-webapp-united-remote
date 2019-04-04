@@ -18,6 +18,7 @@ export class ListRepositoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.githubRepositoryService.getNbrPage().subscribe(resp => {
       this.nbrPage = parseInt(resp.headers.get('link').substr(210, 2), 10);
       this.getRepositories();
