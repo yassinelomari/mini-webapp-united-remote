@@ -9,6 +9,7 @@ The GitHub GraphQL API v4 represents an architectural and conceptual shift from 
 
 ## Development server
 
+Brfore Runing server the you have to run `npm install`
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
