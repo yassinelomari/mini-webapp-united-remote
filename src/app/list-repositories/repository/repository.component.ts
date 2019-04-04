@@ -18,6 +18,9 @@ export class RepositoryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    /**************************************************************************/
+    /*    calculate the number of days between date of submission and today   */
+    /**************************************************************************/
     const submittedDate = this.rep.getSubmittedDate();
     const dateNow = new Date();
     const diff = dateNow.getTime() - submittedDate.getTime();

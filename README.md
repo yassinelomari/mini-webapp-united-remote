@@ -1,6 +1,11 @@
 # MiniWebappUnitedRemote
 
+Small webapp that will list the most starred Github repos that were created in the last 30 days using Github api.<br>
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+
+## Github API
+
+The GitHub GraphQL API v4 represents an architectural and conceptual shift from the GitHub REST API v3 [reference docs](https://developer.github.com/v4/).  
 
 ## Development server
 

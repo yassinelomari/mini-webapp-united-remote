@@ -18,13 +18,20 @@ export class ListRepositoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    /**************************************************************************/
+    /*              get the numbre of json pages from response                */
+    /**************************************************************************/
     this.githubRepositoryService.getNbrPage().subscribe(resp => {
       this.nbrPage = parseInt(resp.headers.get('link').substr(210, 2), 10);
       this.getRepositories();
     });
   }
 
+  /***************************************************************************************/
+  /*          get Repositories with joining all observables and subscribe                */
+  /*       the GitHub Search API provides up to 1000 results for each search             */
+  /*       so if  pages are more than 11 (1000  results) I would change it to 11         */
+  /***************************************************************************************/
   getRepositories() {
     const observables: Observable<any[]>[] = [];
     let list: any[] = [];
@@ -36,7 +43,6 @@ export class ListRepositoriesComponent implements OnInit {
       .subscribe(dataArray => {
         list = dataArray.map( page => page['items']);
         list = [].concat.apply([], list);
-        console.log(list);
         list.forEach((res) => {
           const repository = new Repository (res['name'], res['description'], res['stargazers_count'],
             res['open_issues_count'], res['owner']['login'], res['owner']['avatar_url'],new Date(res['updated_at']));
